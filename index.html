@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0">
+	<title>Job Search Portal</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<!-- Custom Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@300;400;600&display=swap"
+		rel="stylesheet">
+
+	<style>
+		body {
+			font-family: 'Poppins', sans-serif;
+			background-color: #f4f4f9;
+			color: #333;
+			font-size: 1rem;
+		}
+
+		header {
+			padding: 1rem 0;
+		}
+
+		header img {
+			width: 135px;
+			height: auto;
+			border-radius: 3%;
+			cursor: pointer;
+
+		}
+
+		nav {
+			background: linear-gradient(to right, #3683d6, #46d467);
+		}
+
+		nav .nav-item a {
+			color: #fff;
+			font-size: 1.5rem;
+			transition: color 0.3s ease;
+		}
+
+		nav .nav-item a:hover {
+			color: #ffd700;
+			border-bottom: 2px solid #ffd9007a;
+			transform: scale(1.1);
+		}
+
+		.search h2 {
+			font-family: 'Roboto', sans-serif;
+			font-size: 2.2rem;
+			margin-bottom: 2rem;
+			color: #007bff;
+		}
+
+		.form-control,
+		.btn-primary {
+			border-radius: 0.25rem;
+			font-size: 1rem;
+		}
+
+		.card {
+			border-radius: 8px;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.card:hover {
+			transform: translateY(-8px);
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+		}
+
+		.card-title {
+			font-size: 1.4rem;
+			color: #007bff;
+		}
+
+		.btn-success {
+			background-color: #28a745;
+			border-color: #28a745;
+			transition: background-color 0.3s ease;
+		}
+
+		.btn-success:hover {
+			background-color: #2188377c;
+			border-color: #1e7e3475;
+		}
+
+		.tech-news .card {
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease;
+		}
+
+		.tech-news .card:hover {
+			transform: translateY(-10px);
+		}
+
+		.tech-news .card-title {
+			font-size: 1.3rem;
+			font-weight: 600;
+			color: #007bff;
+		}
+
+		.tech-news .card-text {
+			font-size: 1rem;
+			color: #555;
+		}
+
+		.tech-hub h2 {
+			font-size: 2.5rem;
+			color: #007bff;
+		}
+
+		.carousel-item {
+			text-align: center;
+			padding: 2rem;
+			background-color: #f9f9f9;
+			border-radius: 8px;
+		}
+
+		.interactive .card-body {
+			background: linear-gradient(to right, #007bff, #00c6ff);
+			color: white;
+		}
+
+		.trending-list {
+			list-style: none;
+			padding: 0;
+		}
+
+		.trending-list li {
+			margin-bottom: 8px;
+		}
+
+		.trending-list li a {
+			color: #007bff;
+			text-decoration: none;
+		}
+
+		.video-thumbnail {
+			text-align: center;
+		}
+
+		.video-thumbnail img {
+			width: 100%;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease;
+		}
+
+		.video-thumbnail img:hover {
+			transform: scale(1.05);
+		}
+
+
+		.top_tag {
+			position: fixed;
+			bottom: 50px;
+			right: 20px;
+			background-color: #043f7e;
+			color: #fff;
+			border-radius: 40%;
+			text-align: center;
+			font-size: 1.2rem;
+			padding: 0.5rem 1rem;
+			transition: background-color 0.3s ease;
+			text-decoration: none;
+		}
+
+		.top_tag:hover {
+			text-decoration: none;
+			background-color: #0057b36b;
+		}
+
+		footer {
+			background: #222;
+			color: #bbb;
+			padding: 1rem;
+		}
+
+		@media (max-width: 768px) {
+			header img {
+				width: 90px;
+			}
+
+			.search h2 {
+				font-size: 1.8rem;
+			}
+
+			.top_tag {
+				font-size: 1rem;
+				padding: 0.4rem 0.8rem;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Scroll to Top Button -->
+	<a href="#top" class="top_tag">Top</a>
+
+	<header id="tag" class="text-white d-flex justify-content-around align-items-center p-3">
+		<img src="./job1.webp" alt="logo" onclick="location.reload()" />
+		<nav class="d-flex  justify-content-center">
+			<ul class="nav">
+				<li class="nav-item"><a href="#home" class="nav-link m-2">Home</a></li>
+				<li class="nav-item"><a href="#portal" class="nav-link m-2">Jobs</a></li>
+				<li class="nav-item"><a href="#job" class="nav-link m-2">Companies</a></li>
+				<li class="nav-item"><a href="#about" class="nav-link m-2">About Us</a></li>
+				<li class="nav-item"><a href="#contact" class="nav-link m-2">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<section class="container my-5">
+		<div class="search text-center">
+			<h2>Find Your Dream Job</h2>
+			<form action="#" method="get">
+				<div class="form-row justify-content-center">
+					<!-- Keywords Dropdown -->
+					<div class="col-md-3 mb-2">
+						<select class="form-control" name="keywords">
+							<option value="" disabled selected>Select Keywords</option>
+							<option value="java">Java</option>
+							<option value="javascript">JavaScript</option>
+							<option value="python">Python</option>
+							<option value="html">HTML</option>
+							<option value="css">CSS</option>
+						</select>
+					</div>
+
+					<!-- Location Dropdown -->
+					<div class="col-md-3 mb-2">
+						<select class="form-control" name="location">
+							<option value="" disabled selected>Select Location</option>
+							<option value="new-york">New York</option>
+							<option value="san-francisco">San Francisco</option>
+							<option value="los-angeles">Los Angeles</option>
+							<option value="chicago">Chicago</option>
+							<option value="seattle">Seattle</option>
+						</select>
+					</div>
+
+					<!-- Company Dropdown -->
+					<div class="col-md-3 mb-2">
+						<select class="form-control" name="company">
+							<option value="" disabled selected>Select Company</option>
+							<option value="google">Google</option>
+							<option value="microsoft">Microsoft</option>
+							<option value="amazon">Amazon</option>
+							<option value="facebook">Facebook</option>
+							<option value="apple">Apple</option>
+						</select>
+					</div>
+
+					<!-- Search Button -->
+					<div class="col-md-2 mb-2">
+						<button type="submit" class="btn btn-primary btn-block">Search</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<section class="container">
+		<h2 class="text-center mb-4">Latest Job Listings</h2>
+		<div class="row">
+			<!-- Job Card Example -->
+			<div class="col-md-6 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<h3 class="card-title">Web Developer</h3>
+						<p class="card-text">Company: GfG</p>
+						<p class="card-text">Location: India</p>
+						<p class="card-text">Description: Skilled Web Developer</p>
+						<a href="#" class="btn btn-success btn-sm">Apply Now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<h3 class="card-title">Java Developer</h3>
+						<p class="card-text">Company: CIS</p>
+						<p class="card-text">Location: India</p>
+						<p class="card-text">Description: Skilled Java Developer</p>
+						<a href="#" class="btn btn-success btn-sm">Apply Now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<h3 class="card-title">Android Developer</h3>
+						<p class="card-text">Company: Meta</p>
+						<p class="card-text">Location: India</p>
+						<p class="card-text">Description: Skilled Android Developer</p>
+						<a href="#" class="btn btn-success btn-sm">Apply Now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<h3 class="card-title">CPP Developer</h3>
+						<p class="card-text">Company: TCS</p>
+						<p class="card-text">Location: India</p>
+						<p class="card-text">Description: Skilled CPP Developer</p>
+						<a href="#" class="btn btn-success btn-sm">Apply Now</a>
+					</div>
+				</div>
+			</div>
+			<!-- Additional job cards can be added here -->
+
+		</div>
+	</section>
+	<section class="container my-5">
+		<div class="tech-news">
+			<h2 class="text-center mb-4">Tech News and Resources</h2>
+			<div class="row">
+				<!-- News Article 1 -->
+				<div class="col-md-4">
+					<div class="card mb-4">
+						<div class="card-body">
+							<h4 class="card-title">Latest in AI and Machine Learning</h4>
+							<p class="card-text">Explore the recent advancements in AI, including machine learning
+								trends,
+								new algorithms, and applications.</p>
+							<a href="#" class="btn btn-primary btn-sm">Read More</a>
+						</div>
+					</div>
+				</div>
+				<!-- News Article 2 -->
+				<div class="col-md-4">
+					<div class="card mb-4">
+						<div class="card-body">
+							<h4 class="card-title">Top JavaScript Frameworks in 2023</h4>
+							<p class="card-text">A rundown of the most popular JavaScript frameworks to learn and use in
+								2023, including React, Angular, and Vue.</p>
+							<a href="#" class="btn btn-primary btn-sm">Read More</a>
+						</div>
+					</div>
+				</div>
+				<!-- News Article 3 -->
+				<div class="col-md-4">
+					<div class="card mb-4">
+						<div class="card-body">
+							<h4 class="card-title">Career Tips for Aspiring Developers</h4>
+							<p class="card-text">Advice on building a strong tech portfolio, preparing for interviews,
+								and
+								advancing in the tech industry.</p>
+							<a href="#" class="btn btn-primary btn-sm">Read More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- one more section  -->
+	<section class="container my-5">
+		<div class="tech-hub">
+			<h2 class="text-center mb-4">Tech Insights Hub</h2>
+
+			<!-- Featured News Carousel -->
+			<div id="techCarousel" class="carousel slide mb-4" data-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<h3>Emerging AI Technologies</h3>
+						<p>Discover the latest breakthroughs in artificial intelligence.</p>
+					</div>
+					<div class="carousel-item">
+						<h3>JavaScript Libraries to Learn</h3>
+						<p>Find out which JavaScript libraries are in demand in 2023.</p>
+					</div>
+					<div class="carousel-item">
+						<h3>Python Trends in Data Science</h3>
+						<p>Learn about Python’s growing role in data analysis and AI.</p>
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#techCarousel" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				</a>
+				<a class="carousel-control-next" href="#techCarousel" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				</a>
+			</div>
+
+			<!-- Interactive Coding Challenges -->
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card interactive mb-4">
+						<div class="card-body">
+							<h4 class="card-title">Take a Quick Coding Challenge</h4>
+							<p>Test your skills with a JavaScript or Python challenge. <strong>Challenge yourself
+									daily!</strong></p>
+							<button class="btn btn-primary btn-sm" onclick="startChallenge()">Start Challenge</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Trending Topics Section -->
+				<div class="col-md-6">
+					<div class="card mb-4">
+						<div class="card-body">
+							<h4 class="card-title">Trending Tech Topics</h4>
+							<ul class="trending-list">
+								<li><a href="#">Understanding Quantum Computing</a></li>
+								<li><a href="#">Blockchain Beyond Cryptocurrency</a></li>
+								<li><a href="#">Cybersecurity Tips for Developers</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Tutorial Videos Section -->
+			<h3 class="text-center mb-4">Tutorials and Tech Talks</h3>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="video-thumbnail">
+						<a href="https://www.youtube.com/" target="_blank">
+							<img src="./python.webp" alt="Video 1">
+						</a>
+						<p>Learn Python for Data Science</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="video-thumbnail">
+						<a href="https://www.youtube.com/" target="_blank">
+							<img src="./javascript.jfif" alt="Video 2">
+						</a>
+						<p>Mastering JavaScript in 2023</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="video-thumbnail">
+						<a href="https://www.youtube.com/" target="_blank">
+							<img src="./cloud.jfif" alt="Video 3">
+						</a>
+						<p>Intro to Cloud Computing</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<footer class="text-center">
+		<p>&copy; 2024 Job Search Portal</p>
+	</footer>
+</body>
+
+</html>
